@@ -4,3 +4,16 @@
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+@theme{
+  --color-white-100: #F6F6F6;
+
+  --color-gray-500: #5C5F6A;
+  --color-gray-600: #474B57;
+  --color-gray-800: #202533;
+  --color-gray-900: #0E1422;
+
+  --tracking-3: -3.5%;
+
+  --leading-175: 175%;
+}
