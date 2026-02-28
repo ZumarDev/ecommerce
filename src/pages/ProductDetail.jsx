@@ -3,6 +3,11 @@ import Products from "../components/Products";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { CiShare2, } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import InStock from "../UI/InStock";
+import { useState } from "react";
+import SelectedColor from "../components/selectedProducts/SelectedColor";
+import SelectedSize from "../components/selectedProducts/SelectedSize";
+import Quantity from "../components/selectedProducts/Quantity";
 export default function ProductDetail() {
     const param = useParams();
 
@@ -88,9 +93,9 @@ export default function ProductDetail() {
 
     const filteredProduct = products.filter((e) => +e.id === +param.productId);
 
-    console.log(filteredProduct);
-    const {title, reviewsCount, price, discountPrice, rating, stock} = filteredProduct[0];
-    console.log(title, reviewsCount, price, discountPrice, rating, stock )
+    const { title, reviewsCount, price, rating, stock } = filteredProduct[0];
+    // console.log(title, reviewsCount, price, discountPrice, rating, stock);
+
     return (
         <section>
             <div className="container">
@@ -104,28 +109,33 @@ export default function ProductDetail() {
                     </span>
                 </div>
 
-                <div className="flex gap-2 mt-4 mb-44">
+                <div className="flex gap-30 mt-4 mb-44">
                     <div className="border grow">Image</div>
-                    <div className="grow-2 bg-lime-400">
+                    <div className="grow">
                         <div className="flex items-center justify-between grow">
                             <h3 className="text-2xl font-bold text-gray-900">{title}</h3> <CiShare2 size={26} className="text-gray-900" />
                         </div>
-                        <div>
-                            <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-8 mt-3">
+                            <div className="flex items-center gap-2 bg-white-100 rounded-full py-0.5 px-4">
                                 <FaStar className="text-gray-900" />
                                 <p>{rating}</p>
-                                <p>-</p>
-                                <p>{reviewsCount}Review</p>
+                                <p>—</p>
+                                <p>{reviewsCount} {reviewsCount > 1 ? 'Reviews' : 'Review'}</p>
+                            </div>
+
+                            <div>
+                                <InStock>{stock > 0 ? 'In stock' : 'Out of stock'}</InStock>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                {/* suggestion */}
-                <div className="flex items-center justify-between gap-5">
-                    {
-                        products.map((e, i) => <Products key={i} item={e} />)
-                    }
+                        <div className="font-semibold text-lg mt-6">
+                            ${price.toFixed(2)}
+                        </div>
+
+                        <SelectedColor/>
+                        <SelectedSize/>
+                        <Quantity stock={stock}/>
+                    </div>
                 </div>
             </div>
         </section>
