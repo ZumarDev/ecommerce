@@ -4,7 +4,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { CiShare2, } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import InStock from "../UI/InStock";
-import { useState } from "react";
 import SelectedColor from "../components/selectedProducts/SelectedColor";
 import SelectedSize from "../components/selectedProducts/SelectedSize";
 import Quantity from "../components/selectedProducts/Quantity";

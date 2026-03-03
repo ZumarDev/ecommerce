@@ -26,6 +26,6 @@ function SizeBtn({ size, handleSelectSize, selectSize }) {
     return (
         <button 
         onClick={()=>handleSelectSize(size)}
-        className={`${size === selectSize && 'border-red-500 border-2'} uppercase w-10 h-10 border outline-none rounded-sm text-[12px] leading-6 font-medium`}>{size}</button>
+        className={`${size === selectSize && 'border-black border-2'} uppercase cursor-pointer w-10 h-10 border outline-none rounded-sm text-[12px] leading-6 font-medium`}>{size}</button>
     )
 }

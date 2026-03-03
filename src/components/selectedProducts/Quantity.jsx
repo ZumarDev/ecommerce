@@ -4,11 +4,9 @@ export default function Quantity({stock}) {
     const [count, setCount] = useState(0);
 
     const inc = ()=>{
-        setCount((prev)=>prev + 1);
-        console.log(stock);
-        // if(count > stock){
-
-        // }
+        if(count < stock){
+            setCount((prev)=>prev + 1);
+        }
     }
 
     const dec = ()=> {

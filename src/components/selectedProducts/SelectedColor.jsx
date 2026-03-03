@@ -14,8 +14,8 @@ export default function SelectedColor() {
                 {
                     colors?.map((color, i) => {
                         return (
-                            <div key={i} onClick={() => handleSelectedColor(color)} className={`${color === selectedColor ? 'border' : ''} rounded-full w-8 h-8 p-1`}>
-                                <div style={{backgroundColor: color}} className={`rounded-full w-full h-full`}></div>
+                            <div key={i} onClick={() => handleSelectedColor(color)} className={`${color === selectedColor && 'border'} rounded-full w-8 h-8 p-1`}>
+                                <div style={{backgroundColor: color}} className={`rounded-full w-full h-full cursor-pointer`}></div>
                             </div>
                         )
                     })
